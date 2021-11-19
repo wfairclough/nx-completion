@@ -80,7 +80,7 @@ _list_targets() {
 
   for p in $projects; do 
     local -a executors
-    executors=($(< $def | jq ".projects[\"$p\"].architect" | jq -r 'keys[]'))
+    executors=($(< $def | jq ".projects[\"$p\"].targets" | jq -r 'keys[]'))
     for e in $executors; do
       targets+=("$p\:$e")
     done
